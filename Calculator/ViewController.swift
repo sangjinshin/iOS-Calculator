@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     // Instance vars
     var labelString:String = "0"
     var currentMode:modes = modes.NOT_SET
-    var savedNum:Int = 0
+    var savedNum:Double = 0.0
     var lastButtonWasMode:Bool = false
     
     // Result label
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         changeMode(modes.DIVISION)
     }
     @IBAction func tappedEquals(sender: AnyObject) {
-        guard let num:Int = Int(labelString) else {
+        guard let num:Double = Double(labelString) else {
             return
         }
         if currentMode == modes.NOT_SET || lastButtonWasMode {
@@ -92,16 +92,16 @@ class ViewController: UIViewController {
     }
     
     func updateText() {
-        guard let labelInt:Int = Int(labelString) else {
-            label.text = "Int conversion failed"
+        guard let labelDouble:Double = Double(labelString) else {
+            label.text = "Double conversion failed"
             return
         }
         if currentMode == modes.NOT_SET {
-            savedNum = labelInt
+            savedNum = labelDouble
         }
         let formatter:NSNumberFormatter = NSNumberFormatter()
         formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
-        let num:NSNumber = NSNumber(integer: labelInt)
+        let num:NSNumber = NSNumber(double: labelDouble)
         label.text = formatter.stringFromNumber(num)
     }
     
