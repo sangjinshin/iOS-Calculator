@@ -2,5 +2,5 @@
 Basic iOS Calculator App built using Swift
 
 <p>
-<img src="/Calculator/img/screenshot.png" width="30%">
+<img src="/img/screenshot.png" width="30%">
 </p>
